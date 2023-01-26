@@ -24,6 +24,8 @@ CandidateRoutes(app);
 const VoterRoutes = require('./server/routes/voter.route');   
 VoterRoutes(app);
 
+const AdminRoutes = require('./server/routes/admin.route');   
+VoterRoutes(app);
 
 app.listen(PORT, () => {
     console.log("Listening at Port 8000")
