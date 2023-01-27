@@ -5,9 +5,9 @@ const Navbar = () => {
   return (
     <div className="bg-dark">
         <h1 className="text-warning">The Ballot Box</h1>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/voterdashboard">Candidates</NavLink>
+        <NavLink to="/edit/candidate/:id">Admin</NavLink>
+        <NavLink to="/api/register">Register</NavLink>
+        <NavLink to="/api/candidates">Candidates</NavLink>
     </div>
   )
 }
