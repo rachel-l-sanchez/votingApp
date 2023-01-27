@@ -1,5 +1,4 @@
-import React from 'react'
-import React, { useState} from 'react';
+import React, { useState, useEffect, useNavigate} from 'react';
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom';
 
@@ -15,11 +14,12 @@ const Admin = () => {
     const [ candidateList, setCandidateList ] = useState([]);
     const { id } = useParams();
     const [errors, setErrors] = useState({}); 
+    const navigate = useNavigate();
 
     useEffect (() => {
         axios
             .get('http://localhost:8000/api/candidates')
-            .then((result) => setProductList(result.data))
+            .then((result) => setCandidateList(result.data))
             .catch(err => console.log(err))
     }, []);
 

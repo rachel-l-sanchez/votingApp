@@ -8,11 +8,9 @@ const AdminLogout = () => {
     }
 
     return (
-        <MenuItem
-            onClick={handleClick}
-            ref={ref}>
-            <ExitIcon /> Logout
-        </MenuItem>
+        <div>
+            
+        </div>
     );
 };
 

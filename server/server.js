@@ -16,15 +16,15 @@ app.use(express.urlencoded({ extended: true }));   /* allows JSON Objects with s
 // middleware that adds cookies to the request
 app.use(cookieParser())
 
-require('./server/config/mongoose.config');
+require('./config/mongoose.config');
 
-const CandidateRoutes= require('./server/routes/candidate.route');  
+const CandidateRoutes= require('./routes/candidate.route');  
 CandidateRoutes(app);
 
-const VoterRoutes = require('./server/routes/voter.route');   
+const VoterRoutes = require('./routes/voter.route');   
 VoterRoutes(app);
 
-const AdminRoutes = require('./server/routes/admin.route');   
+const AdminRoutes = require('./routes/admin.route');   
 VoterRoutes(app);
 
 app.listen(PORT, () => {

@@ -1,17 +1,15 @@
-import './App.css';
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Voted from './components/Voted';
 import CandidateForm from './components/CandidateForm';
-import Register from './components/Register';
+import VoterRegister from './components/VoterRegister';
 import CandidateList from './components/CandidateList';
-import Login from './components/Login';
+import VoterLogin from './components/VoterLogin';
 import Navbar from './components/Navbar';
-
-
+import Home from './components/Home';
 import Admin from './components/Admin';
-import AdminLogin from './AdminLogin';
-import AdminLogout from './AdminLogout';
+import AdminLogin from './components/AdminLogin';
+import AdminLogout from './components/AdminLogout';
 
 function App() {
 
@@ -22,8 +20,8 @@ function App() {
         <Navbar/>
         <Home/>
         <Routes>
-          <Route element={<Register/>} path="/api/register" default/>
-          <Route element={<Login/>} path="/api/login"/>
+          <Route element={<VoterRegister/>} path="/api/register" default/>
+          <Route element={<VoterLogin/>} path="/api/login"/>
           <Route element={<CandidateForm/>} path="/api/candidate" />
           <Route element={<CandidateList/>} path="/api/candidates" />
           <Route element={<Voted/>} path="/api/candidate/:id" />
