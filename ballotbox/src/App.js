@@ -4,7 +4,7 @@ import AdminDashboard from './components/AdminDashboard';
 import EditCandidate from './components/EditCandidate';
 import Home from './components/Home';
 import Login from './components/Login';
-import NavBar from './components/NavBar';
+import Navbar from './components/Navbar';
 import RaceStats from './components/RaceStats';
 import Register from './components/Register';
 import ViewCandidate from './components/ViewCandidate';
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar/>
+        <Navbar/>
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<Login />} path="/login" />
