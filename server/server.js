@@ -1,35 +1,37 @@
-const express = require('express');
-const cors = require('cors')
-const PORT = 8000
-require('dotenv').config()
-const cookieParser = require('cookie-parser');
+const express = require("express");
+const cors = require("cors");
+const PORT = 8000;
+require("dotenv").config();
+const cookieParser = require("cookie-parser");
 
 const app = express();
-app.use(cors({
-    origin: 'http://localhost:3000', credentials:true
-}));
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 // middleware sends post data by adding it in
 
-app.use(express.json());                           /*  allows JSON Objects to be posted */
-app.use(express.urlencoded({ extended: true }));   /* allows JSON Objects with strings and arrays*/
+app.use(express.json()); /*  allows JSON Objects to be posted */
+app.use(
+  express.urlencoded({ extended: true })
+); /* allows JSON Objects with strings and arrays*/
 
 // middleware that adds cookies to the request
-app.use(cookieParser())
+app.use(cookieParser());
 
-require('./config/mongoose.config');
+require("./config/mongoose.config");
 
-const CandidateRoutes= require('./routes/candidate.route');  
+const CandidateRoutes = require("./routes/candidate.route");
 CandidateRoutes(app);
 
-const VoterRoutes = require('./routes/voter.route');   
+const VoterRoutes = require("./routes/voter.route");
 VoterRoutes(app);
 
-const AdminRoutes = require('./routes/admin.route');   
+const AdminRoutes = require("./routes/admin.route");
 VoterRoutes(app);
 
 app.listen(PORT, () => {
-    console.log("Listening at Port 8000")
-})
-
-
-
+  console.log("Listening at Port 8000");
+});

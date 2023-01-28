@@ -19,6 +19,5 @@
     "mongoose": "^6.8.1",
     "nanoid": "^4.0.0"
   },
-  "devDependencies": {},
   "description": ""
 }
