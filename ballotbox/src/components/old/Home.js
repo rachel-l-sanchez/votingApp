@@ -8,12 +8,12 @@ const Home = () => {
         <div>
             <h2>New here?</h2>
             <h2>Register as a Voter or Candidate</h2>
-            <NavLink to="/register">Register</NavLink>
+            <NavLink to="/api/register">Register</NavLink>
         </div>
         <div>
             <h2>Back again?</h2>
             <h2>Login & get back to it!</h2>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/api/login">Login</NavLink>
         </div>
     </div>
   )
