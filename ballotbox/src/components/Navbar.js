@@ -9,7 +9,7 @@ const Navbar = () => {
           <h1>The Ballot Box</h1>
         </div>
         <div className='links'>
-          <button className="navButton"><NavLink to="/login">LOGIN</NavLink></button><br/><br/>
+          <button className="navButton"><NavLink to="/adminSignIn">LOGIN</NavLink></button><br/><br/>
           <button className="navButton"><NavLink to="/">HOME</NavLink></button><br/><br/>
           <button className="navButton"><NavLink to="/voterdashboard">CANDIDATES</NavLink></button>
         </div>
