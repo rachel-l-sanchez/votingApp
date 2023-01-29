@@ -30,7 +30,7 @@ const VoterRoutes = require("./routes/voter.route");
 VoterRoutes(app);
 
 const AdminRoutes = require("./routes/admin.route");
-VoterRoutes(app);
+AdminRoutes(app);
 
 app.listen(PORT, () => {
   console.log("Listening at Port 8000");

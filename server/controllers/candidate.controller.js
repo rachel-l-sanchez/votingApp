@@ -8,7 +8,7 @@ module.exports = {
     const user = jwt.verify(req.cookies.userToken, SECRET);
     Candidate.create({ ...req.body, userCreated: user })
       .then((newCandidate) => {
-        console.log("Candidate successfull created", newCandidate);
+        console.log("Candidate successfully created", newCandidate);
         res.json(newCandidate);
       })
       .catch((err) => {

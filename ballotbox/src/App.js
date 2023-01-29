@@ -9,9 +9,11 @@ import RaceStats from './components/RaceStats';
 import Register from './components/Register';
 import ViewCandidate from './components/ViewCandidate';
 import VoterDashboard from './components/VoterDashboard';
+import { useState } from 'react';
+import AdminLogReg from './components/AdminLogReg';
 
 function App() {
-
+  const [admin, setAdmin] = useState({})
 
   return (
     <div className="App">
@@ -19,8 +21,9 @@ function App() {
         <Navbar/>
         <Routes>
           <Route element={<Home />} path="/" />
-          <Route element={<Login />} path="/login" />
-          <Route element={<Register />} path="/register" />
+          <Route element={<AdminLogReg />} path="/adminSignIn" />
+          <Route element={<Login  setAdmin={setAdmin} />} path="/login" />
+          <Route element={<Register setAdmin={setAdmin}/>} path="/register" />
           <Route element={<AdminDashboard />} path="/admin" />
           <Route element={<VoterDashboard />} path="/voterdashboard" />
           <Route element={<EditCandidate />} path="/edit/:id" />
