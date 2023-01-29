@@ -15,6 +15,7 @@ const Home = () => {
             <h2>Back again?</h2>
             <h2>Login & get back to it!</h2>
             <NavLink to="/login">Login</NavLink>
+
         </div>
         <div className="bg-green-200">
           <p className="text-4xl">Welcome to the Ballot Box, your virtual polling center.</p>
@@ -27,6 +28,7 @@ const Home = () => {
             <p className="text-5xl">View Your Candidates</p>
             <NavLink to="/voterdashboard">Voter Dashboard</NavLink>
           </div>
+
         </div>
     </div>
 
