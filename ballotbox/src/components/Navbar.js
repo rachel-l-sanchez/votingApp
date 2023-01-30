@@ -1,13 +1,25 @@
 import React from 'react'
 import {Link,NavLink} from 'react-router-dom';
+import '../navbar.css'
 
 const Navbar = () => {
+
+  const logoStyle = {
+    height: 'auto',
+    width: '20em',
+    cursor: 'pointer'
+  }
+
   return (
-    <div className="bg-dark">
-        <h1 className="text-warning">The Ballot Box</h1>
-        <NavLink to="/edit/candidate/:id">Admin</NavLink>
-        <NavLink to="/api/register">Register</NavLink>
-        <NavLink to="/api/candidates">Candidates</NavLink>
+    <div className="navbar">
+        <div className='title'>
+        <NavLink to="/"><img src={require('../assets/logo.png')} style={logoStyle} alt="logo"/></NavLink>
+        </div>
+        <div className='links'>
+          <button className="navButton"><NavLink to="/adminSignIn">LOGIN</NavLink></button><br/><br/>
+          <button className="navButton"><NavLink to="/">HOME</NavLink></button><br/><br/>
+          <button className="navButton"><NavLink to="/voterdashboard">CANDIDATES</NavLink></button>
+        </div>
     </div>
   )
 }

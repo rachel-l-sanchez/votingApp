@@ -1,30 +1,34 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Voted from './components/Voted';
-import CandidateForm from './components/CandidateForm';
-import VoterRegister from './components/VoterRegister';
-import CandidateList from './components/CandidateList';
-import VoterLogin from './components/VoterLogin';
-import Navbar from './components/Navbar';
+import AdminDashboard from './components/AdminDashboard';
+import EditCandidate from './components/EditCandidate';
 import Home from './components/Home';
-import Admin from './components/Admin';
-import AdminLogin from './components/AdminLogin';
-import AdminLogout from './components/AdminLogout';
+import Login from './components/Login';
+import Navbar from './components/Navbar';
+import RaceStats from './components/RaceStats';
+import Register from './components/Register';
+import ViewCandidate from './components/ViewCandidate';
+import VoterDashboard from './components/VoterDashboard';
+import { useState } from 'react';
+import AdminLogReg from './components/AdminLogReg';
 
 function App() {
-
+  const [admin, setAdmin] = useState({})
 
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar/>
-        <Home/>
         <Routes>
-          <Route element={<VoterRegister/>} path="/api/register" default/>
-          <Route element={<VoterLogin/>} path="/api/login"/>
-          <Route element={<CandidateForm/>} path="/api/candidate" />
-          <Route element={<CandidateList/>} path="/api/candidates" />
-          <Route element={<Voted/>} path="/api/candidate/:id" />
+          <Route element={<Home />} path="/" />
+          <Route element={<AdminLogReg />} path="/adminSignIn" />
+          <Route element={<Login  setAdmin={setAdmin} />} path="/login" />
+          <Route element={<Register setAdmin={setAdmin}/>} path="/register" />
+          <Route element={<AdminDashboard />} path="/admin" />
+          <Route element={<VoterDashboard />} path="/voterdashboard" />
+          <Route element={<EditCandidate />} path="/edit/:id" />
+          <Route element={<ViewCandidate />} path="/view/:id" />
+          <Route element={<RaceStats />} path="/racecount" />
         </Routes>
       </BrowserRouter>
     </div>
