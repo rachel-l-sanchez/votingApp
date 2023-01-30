@@ -2,7 +2,7 @@
 
 .navbar {
     font-family: montserrat;
-    background-color: rgb(177, 176, 176);
+    background-color: #403f3b;
     display: flex;
     flex-direction: row;
     padding: .25em 2em;
