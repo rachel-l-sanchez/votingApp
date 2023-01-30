@@ -5,12 +5,12 @@ import EditCandidate from './components/EditCandidate';
 import Home from './components/Home';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
-import RaceStats from './components/RaceStats';
 import Register from './components/Register';
 import ViewCandidate from './components/ViewCandidate';
 import VoterDashboard from './components/VoterDashboard';
 import { useState } from 'react';
 import AdminLogReg from './components/AdminLogReg';
+import Footer from './components/Footer';
 
 function App() {
   const [admin, setAdmin] = useState({})
@@ -28,8 +28,8 @@ function App() {
           <Route element={<VoterDashboard />} path="/voterdashboard" />
           <Route element={<EditCandidate />} path="/edit/:id" />
           <Route element={<ViewCandidate />} path="/view/:id" />
-          <Route element={<RaceStats />} path="/racecount" />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
