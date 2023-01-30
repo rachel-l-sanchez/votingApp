@@ -9,7 +9,7 @@ const Login = ({setAdmin}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:8000/api/admin/login',{ email, password}, { withCredentials: true })
+    axios.post('http://localhost:8000/api/admin/login',{ email, password}, { withCredentials: true, credentials:'include' })
         .then ( res => {
             console.log('admin', res.data.admin);
             setAdmin(res.data.admin)
@@ -22,7 +22,7 @@ const Login = ({setAdmin}) => {
   return (
     <div>
       <h1>Admin Login</h1>
-      <form onSubmit = {handleSubmit}>
+      <form onSubmit = {()=>handleSubmit}>
         {/* email */}
         <label>
             Email:
