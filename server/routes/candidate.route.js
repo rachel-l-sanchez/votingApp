@@ -2,6 +2,17 @@ const CandidateController = require("../controllers/candidate.controller");
 const { authenticate } = require("../config/jwt.config");
 
 module.exports = (app) => {
+
+    app.post('/api/candidate', CandidateController.createCandidate);
+    app.get('/api/candidate/:id', CandidateController.findOneCandidate);
+    app.get('/api/candidates', CandidateController.findAllCandidates);
+    app.put('/api/vote/:id', authenticate, CandidateController.updateCandidate);
+    app.put('/edit/candidate/:id', authenticate, CandidateController.editCandidate);
+    app.delete('/api/:id', authenticate, CandidateController.deleteAnExistingCandidate);
+    app.get('/api/winner', CandidateController.findOneWinner);
+
+}
+
   app.post("/api/candidate", authenticate, CandidateController.createCandidate);
   app.get(
     "/api/candidate/:id",
@@ -27,3 +38,4 @@ module.exports = (app) => {
   );
   app.get("/api/winner", authenticate, CandidateController.findOneWinner);
 };
+
