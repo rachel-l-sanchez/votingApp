@@ -15,9 +15,11 @@ const Register = ({setAdmin}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('register form')
+    const newUser = {firstName, lastName, email, password}
+    console.log(newUser)
 
-    axios.post('http://localhost:8000/api/admin/register', {firstName, lastName, email, password, confirmPassword},
-      {withCredentials: true })
+    axios.post('http://localhost:8000/api/admin/register', newUser,
+    {withCredentials:true, credentials:'include'})
       .then (res => {
         console.log("logged in admin" + res.data.admin)
         setErrors([])
@@ -32,7 +34,7 @@ const Register = ({setAdmin}) => {
   return (
     <div>
       <h1>Register New Admin</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={()=>handleSubmit}>
                 {/* first name */}
                 {errors.firstName ? <span className="accent">{errors.firstName.message}</span> : null}
                 <br/>
