@@ -10,9 +10,10 @@ module.exports = {
       //console.log("trying register user");
       const newAdmin = await Admin.create(req.body);
       //console.log("user registered", newUser);
-      const adminToken = jwt.sign({ _id: newAdmin._id, email: newAdmin.email },SECRET);
+      // const adminToken = jwt.sign({ _id: newAdmin._id, email: newAdmin.email },SECRET);
       //console.log("userToken received", userToken);
-      res.status(201).cookie("adminToken", adminToken, {httpOnly: true,expires: new Date(Date.now() + 90000),}).json({ successMessage: "admin logged in", admin:newAdmin });
+      // res.status(201).cookie("adminToken", adminToken, {httpOnly: true,expires: new Date(Date.now() + 90000),}).json({ successMessage: "admin logged in", admin:newAdmin });
+      res.status(201).json({ successMessage: "admin logged in", admin:newAdmin });
     } catch (error) {
       res.status(400).json(error);
     }
@@ -20,7 +21,6 @@ module.exports = {
 
   getAdmin: async (req, res) => {
     Admin.findOne({ email: req.params.email })
-      .populate("reviews")
       .then((result) => {
         res.json(result);
       })
@@ -31,9 +31,9 @@ module.exports = {
 
   updateAdmin: (req, res) => {
     console.log("updatedUser");
-    const admin = jwt.verify(req.cookies.adminToken, SECRET);
+    // const admin = jwt.verify(req.cookies.adminToken, SECRET);
     //console.log("We are here", user._id);
-    Admin.findOneAndUpdate({ _id: admin._id }, req.body, {
+    Admin.findOneAndUpdate({ _id: req.params._id }, req.body, {
       new: true,
       runValidators: true,
     })
@@ -41,7 +41,7 @@ module.exports = {
       //^req.body is what we are wanting to update
       .then((updatedAdmin) => {
         console.log("user is updated", updatedAdmin);
-        res.json(updatedUser);
+        res.json(updatedAdmin);
       })
       .catch((err) => {
         console.log("user was not updated", err);
@@ -97,8 +97,9 @@ module.exports = {
       } else {
         //if both req.body email and pw match data in db, create json web token
 
-        const adminToken = jwt.sign({ _id: admin._id, email: admin.email },SECRET)
-        res.status(201).cookie("adminToken", adminToken, {httpOnly: true,expires: new Date(Date.now() + 90000)}).json({ successMessage: "Admin logged in", admin: admin });
+        // const adminToken = jwt.sign({ _id: admin._id, email: admin.email },SECRET)
+        // res.status(201).cookie("adminToken", adminToken, {httpOnly: true,expires: new Date(Date.now() + 90000)}).json({ successMessage: "Admin logged in", admin: admin });
+        res.status(201).json({ successMessage: "Admin logged in", admin: admin });
       }
     } catch (error) {
       res.status(400).json({ error: "Invalid email/password" });
