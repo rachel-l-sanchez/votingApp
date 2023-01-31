@@ -1,5 +1,4 @@
 const AdminController = require('../controllers/admin.controller');
-const { authenticate } = require("../config/jwt.config");
 
 module.exports = (app) => {
     app.post('/api/admin/register', AdminController.registerAdmin);
