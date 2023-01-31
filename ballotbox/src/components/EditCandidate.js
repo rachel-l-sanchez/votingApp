@@ -84,7 +84,7 @@ const EditCandidate = () => {
         <input name="pastTermStartDate" value={pastTermStartDate}
           onChange={(e) => setPastTermStartDate(e.target.value)}
           className="form-control"
-          type="text"
+          type="date"
         />
         {/* {errors.pastTermStartDate ? (
           <p className="text-danger">{errors.pastTermStartDate.message}</p>
@@ -94,36 +94,42 @@ const EditCandidate = () => {
         <input name="pastTermEndDate" value={pastTermEndDate}
           onChange={(e) => setPastTermEndDate(e.target.value)}
           className="form-control"
+          type="date"
         />
         {/* {errors.pastTermEndDate ? (
           <p className="text-danger">{errors.pastTermEndDate.message}</p>
         ) : null} */}
 
         <label className="form-label">Party:</label>
-        <input name="party" value={party}
-          onChange={(e) => setParty(e.target.value)}
-          className="form-control"
-          type="text"
-        />
+        <select onChange={(e) => setParty(e.target.value)}
+            className="form-control"
+            type="text" value={party}>
+            <option value="Democrat">Democrat</option>
+            <option value="Republican">Republican</option>
+            <option value="Libertarian">Libertarian</option>
+            <option value="Green">Green</option>
+            <option value="Constitution">Constitution</option>
+            <option value="Independent">Independent</option>
+        </select>
         {/* {errors.party ? (
           <p className="text-danger">{errors.party.message}</p>
         ) : null} */}
 
         <label className="form-label">Stance:</label>
-        <input name="stance" value={stance}
-          onChange={(e) => setStance(e.target.value)}
-          className="form-control"
-        />
+        <textarea
+            onChange={(e) => setStance(e.target.value)}
+            className="form-control" value={stance}
+          />
         {/* {errors.stance ? (
           <p className="text-danger">{errors.stance.message}</p>
         ) : null} */}
 
         <label className="form-label">Experience:</label>
-        <input name="experience" value={experience}
-          onChange={(e) => setExperience(e.target.value)}
-          className="form-control"
-          type="text"
-        />
+        <textarea
+            onChange={(e) => setExperience(e.target.value)}
+            className="form-control"
+            type="text" value={experience}
+          />
         {/* {errors.experience ? (
           <p className="text-danger">{errors.experience.message}</p>
         ) : null} */}
@@ -132,7 +138,7 @@ const EditCandidate = () => {
         <input
           onChange={(e) => setVoteCount(e.target.value)}
           className="form-control"
-          type="text"
+          type="number" value={voteCount}
         />
         {/* {errors.voteCount ? (
           <p className="text-danger">{errors.voteCount.message}</p>
