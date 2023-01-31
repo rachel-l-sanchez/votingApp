@@ -6,7 +6,8 @@ module.exports = (app) => {
     app.get('/api/candidate/:id', CandidateController.findOneCandidate);
     app.get('/api/candidates', CandidateController.findAllCandidates);
     app.put('/api/vote/:id', CandidateController.updateCandidate);
-    app.put('/edit/candidate/:id', CandidateController.editCandidate);
+    app.get('/api/editcandidate/:id', CandidateController.findOneCandidate);
+    app.put('/api/edit/candidate/:id', CandidateController.editCandidate);
     app.delete('/api/:id', CandidateController.deleteAnExistingCandidate);
     app.get('/api/winner', CandidateController.findOneWinner);
 }

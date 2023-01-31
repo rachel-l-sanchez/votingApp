@@ -1,5 +1,4 @@
-
-
+import { NavLink } from "react-router-dom";
 import React, { useState, Link, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -36,6 +35,7 @@ const AdminDashboard = () => {
       .then((res) => {
         console.log(res);
         console.log(res.data);
+        setCandidateList([...candidateList, res.data.candidate])
         navigate("/admin");
       })
       .catch((err) => {
@@ -111,7 +111,7 @@ const AdminDashboard = () => {
             <option value="Libertarian">Libertarian</option>
             <option value="Green">Green</option>
             <option value="Constitution">Constitution</option>
-            <option value="Indepdendent">Indepdendent</option>
+            <option value="Independent">Independent</option>
           </select>
 
           {errors.party ? (
@@ -161,6 +161,7 @@ const AdminDashboard = () => {
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Party</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -192,6 +193,9 @@ const AdminDashboard = () => {
                 <div className="d-flex justify-content-around">
                   {candidate.party}
                 </div>
+              </td>
+              <td>
+              <button className="navButton"><NavLink to={`/edit/${candidate._id}`}>Edit Candidate</NavLink></button>
               </td>
             </tr>
           ))}

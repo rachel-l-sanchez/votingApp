@@ -5,22 +5,46 @@ const SECRET = process.env.SECRET_KEY;
 
 module.exports = {
   createCandidate: (req, res) => {
-    const user = jwt.verify(req.cookies.userToken, SECRET);
-    Candidate.create({ ...req.body, userCreated: user })
-      .then((newCandidate) => {
-        console.log("Candidate successfully created", newCandidate);
-        res.json(newCandidate);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(400).json(err);
-      });
+    const {name}= req.body;
+    const {pastTermStartDate} = req.body;
+    const {pastTermEndDate} = req.body;
+    const {party}= req.body;
+    const {stance} = req.body;
+    const {experience} = req.body;
+    const {voteCount} = req.body;
+    Candidate.create({
+      name:name,
+      pastTermStartDate:pastTermStartDate,
+      pastTermEndDate:pastTermEndDate,
+      party:party,
+      stance: stance,
+      experience: experience,
+      voteCount: voteCount
+    })
+    .then((newCandidate)=> {
+      res.json({candidate: newCandidate})
+    })
+    .catch((err)=> {
+      res.status(400).json(err)
+    })
+
   },
+  //   const user = jwt.verify(req.cookies.userToken, SECRET);
+  //   Candidate.create({ ...req.body, userCreated: user })
+  //     .then((newCandidate) => {
+  //       console.log("Candidate successfully created", newCandidate);
+  //       res.json(newCandidate);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       res.status(400).json(err);
+  //     });
+  // },
 
   findOneCandidate: (req, res) => {
     Candidate.findById(req.params.id)
-      .then((result) => {
-        res.json({ result });
+      .then((oneCandidate) => {
+        res.json({ candidate: oneCandidate });
       })
       .catch((err) => response.status(400).json(err));
   },

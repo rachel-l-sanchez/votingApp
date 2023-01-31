@@ -28,7 +28,7 @@ const ViewCandidate = (props) => {
 	useEffect(() => {
 		axios
 			.get(`http://localhost:8000/api/candidate/${id}`)
-			.then((res) => setItem(res.data.result))
+			.then((res) => setItem(res.data.candidate))
 			.catch((e) => console.log(e));
 	}, []);
 
