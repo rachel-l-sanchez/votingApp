@@ -64,6 +64,15 @@ const EditCandidate = (props) => {
       });
   };
 
+  const deleteCandidate = () => {
+    axios.delete(`http://localhost:8000/api/${id}`)
+    .then(res=> {
+      console.log('Candidate deleted', res.data)
+      alert(`Are you sure you want to delete ${candidate.name}?`)
+      navigate('/admin')
+    })
+  }
+
   return (
     <div className="candidate-form bg-div">
       <span>Edit {candidate.name}</span>
@@ -146,7 +155,7 @@ const EditCandidate = (props) => {
         ) : null} */}
 
         <button className="mt-3 btn btn-info ">Update</button>
-        <button className="mt-3 btn btn-danger ">Delete</button>
+        <button onClick={deleteCandidate} className="mt-3 btn btn-danger ">Delete</button>
       </form>
       <button className="navButton"><NavLink to="/admin">Back to Admin Dashboard</NavLink></button>
     </div>
