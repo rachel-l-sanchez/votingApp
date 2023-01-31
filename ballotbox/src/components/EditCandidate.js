@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const EditCandidate = () => {
+const EditCandidate = (props) => {
   //const [errors, setErrors] = useState({});
   const [name, setName] = useState("");
   const [pastTermStartDate, setPastTermStartDate] = useState("");
@@ -13,36 +13,37 @@ const EditCandidate = () => {
   const [stance, setStance] = useState("");
   const [experience, setExperience] = useState("");
   const [voteCount, setVoteCount] = useState("");
+  const [candidate, setCandidate] = useState({})
 
-  const { id } = useParams();
+  const {id} = useParams();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/edit/candidate/${id}`, {
+      .get(`http://localhost:8000/api/editcandidate/${id}`, {
         withCredentials: true, credentials:'include'
       })
       .then((res) => {
         console.log(res);
-        setName(res.data.name);
-        setPastTermStartDate(res.data.pastTermStartDate);
-        setPastTermEndDate(res.data.pastTermEndDate);
-        setParty(res.data.party);
-        setStance(res.data.stance);
-        setExperience(res.data.experience);
-        setVoteCount(res.data.voteCount);
+        setName(res.data.candidate.name);
+        setPastTermStartDate(res.data.candidate.pastTermStartDate);
+        setPastTermEndDate(res.data.candidate.pastTermEndDate);
+        setParty(res.data.candidate.party);
+        setStance(res.data.candidate.stance);
+        setExperience(res.data.candidate.experience);
+        setVoteCount(res.data.candidate.voteCount);
+        setCandidate(res.data.candidate);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    axios
-      .put(
-        `http://localhost:8000/edit/candidate/${id}`,
+    axios.put(
+        `http://localhost:8000/api/edit/candidate/${id}`,
         {
           name,
           pastTermStartDate,
@@ -52,7 +53,7 @@ const EditCandidate = () => {
           experience,
           voteCount,
         },
-        { withCredentials: true }
+        { withCredentials: true, credentials: 'include' }
       )
       .then((res) => {
         console.log(res);
@@ -65,7 +66,7 @@ const EditCandidate = () => {
 
   return (
     <div className="candidate-form bg-div">
-      <span>Edit Candidate</span>
+      <span>Edit {candidate.name}</span>
 
       {/* Create candidate form */}
       <form className="p-4" onSubmit={submitHandler}>
