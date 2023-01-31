@@ -110,7 +110,7 @@ const AdminDashboard = () => {
             <option value="Libertarian">Libertarian</option>
             <option value="Green">Green</option>
             <option value="Constitution">Constitution</option>
-            <option value="Indepdendent">Indepdendent</option>
+            <option value="Independent">Independent</option>
           </select>
 
           {errors.party ? (
