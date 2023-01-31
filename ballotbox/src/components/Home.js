@@ -1,9 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
-import {Link,NavLink} from 'react-router-dom';
-=======
 import {Link} from 'react-router-dom';
->>>>>>> a29c351ae8616f2f841b36078e6c035fdc1eacd3
 import background from '../assets/ballot_bg.png';
 import '../main.css'
 
@@ -26,11 +22,7 @@ const Home = () => {
           </div>
           <div className="flex-col flex items-center p-5 transparentDiv">
             <p className="text-5xl pb-3">View Your Candidates</p>
-<<<<<<< HEAD
-            <NavLink className="p-1" to="/voterdashboard">Voter Dashboard</NavLink>
-=======
             <button className="p-1 dash-button"><Link to="/voterdashboard">Voter Dashboard</Link></button>
->>>>>>> a29c351ae8616f2f841b36078e6c035fdc1eacd3
           </div>
 
         </div>

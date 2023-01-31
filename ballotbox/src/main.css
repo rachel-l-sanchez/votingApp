@@ -3,8 +3,6 @@
 .transparentDiv {
     background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
     background: rgba(204, 204, 204, 0.3);
-<<<<<<< HEAD
-=======
 }
 
 .dash-button {
@@ -41,5 +39,4 @@ button:hover {
 
 a:hover {
     color: white;
->>>>>>> a29c351ae8616f2f841b36078e6c035fdc1eacd3
 }
