@@ -19,8 +19,8 @@ module.exports = {
 
   findOneCandidate: (req, res) => {
     Candidate.findById(req.params.id)
-      .then((result) => {
-        res.json({ result });
+      .then((oneCandidate) => {
+        res.json({ candidate: oneCandidate });
       })
       .catch((err) => response.status(400).json(err));
   },

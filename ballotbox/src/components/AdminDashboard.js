@@ -35,6 +35,7 @@ const AdminDashboard = () => {
       .then((res) => {
         console.log(res);
         console.log(res.data);
+        setCandidateList([...candidateList, res.data.candidate])
         navigate("/admin");
       })
       .catch((err) => {
