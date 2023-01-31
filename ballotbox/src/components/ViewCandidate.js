@@ -22,7 +22,7 @@ const ViewCandidate = (props) => {
 	}, []);
 
 	return (
-		<div>
+		<div className="bg-div">
 			<div className="container">
 				<div className="title-info">
 					<h1>View Candidate </h1>

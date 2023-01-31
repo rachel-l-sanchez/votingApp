@@ -64,7 +64,7 @@ const EditCandidate = () => {
   };
 
   return (
-    <div className="candidate-form">
+    <div className="candidate-form bg-div">
       <span>New Candidate</span>
 
       {/* Create candidate form */}

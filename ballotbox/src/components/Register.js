@@ -32,7 +32,7 @@ const Register = ({setAdmin}) => {
 
 
   return (
-    <div>
+    <div className="bg-div">
       <h1>Register New Admin</h1>
       <form onSubmit={()=>handleSubmit}>
                 {/* first name */}

@@ -3,11 +3,7 @@
 .navbar {
     font-family: montserrat;
     background-color: #403f3b;
-    display: flex;
-    flex-direction: row;
     padding: .25em 2em;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .title {
@@ -21,14 +17,16 @@
 }
 
 .navButton {
-    width: 8em;
+    /* width: 8em; */
     box-shadow: 2px 2px black;
-    background-color: azure;
+    background-color: #c03e3c;
     border-radius: 1vh;
-    padding: .25em 0em;
+    padding: .25em 0.25em;
     font-size: 1em;
+    color: white;
 }
 
 button:hover {
     transform: translateY(-0.25vh);
-  }
+    color:white;
+}

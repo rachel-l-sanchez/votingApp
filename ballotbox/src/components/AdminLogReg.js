@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const AdminLogReg = () => {
   return (
-    <div>
+    <div className="bg-div">
           <button className="navButton"><NavLink to="/login">ADMIN LOGIN</NavLink></button><br/>
           <button className="navButton"><NavLink to="/register">ADMIN REGISTER</NavLink></button>
     </div>

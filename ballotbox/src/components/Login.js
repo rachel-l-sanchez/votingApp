@@ -20,8 +20,8 @@ const Login = ({setAdmin}) => {
 
 
   return (
-    <div>
-      <h1>Admin Login</h1>
+    <div className="bg-div">
+      <p className="text-3xl">Admin Login</p>
       <form onSubmit = {()=>handleSubmit}>
         {/* email */}
         <label>
