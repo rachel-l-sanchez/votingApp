@@ -5,7 +5,7 @@ const { Model, model } = require("mongoose");
 const SECRET = process.env.SECRET;
 
 module.exports = {
-  registerAdmin: async (req, res) => {
+  registerAdmin:async (req, res) => {
     try {
       //console.log("trying register user");
       const newAdmin = await Admin.create(req.body);

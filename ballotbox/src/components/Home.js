@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import background from '../assets/ballot_bg.png';
 import '../main.css'
 
@@ -10,6 +10,8 @@ const Home = () => {
       backgroundImage: `url(${background})`,
       backgroundRepeat: 'repeat'
   }
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -22,7 +24,7 @@ const Home = () => {
           </div>
           <div className="flex-col flex items-center p-5 transparentDiv">
             <p className="text-5xl pb-3">View Your Candidates</p>
-            <button className="p-1 dash-button"><Link to="/voterdashboard">Voter Dashboard</Link></button>
+            <button className="p-1 dash-button" onClick={()=>navigate('/voterdashboard')}>Voter Dashboard</button>
           </div>
 
         </div>
