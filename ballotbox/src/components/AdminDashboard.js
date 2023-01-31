@@ -31,8 +31,7 @@ const AdminDashboard = () => {
           stance,
           experience,
           voteCount,
-        },
-        { withCredentials: true, credentials: "include" }
+        }
       )
       .then((res) => {
         console.log(res);
@@ -50,10 +49,7 @@ const AdminDashboard = () => {
   //useEffect to get All Candidates
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/candidates", {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .get("http://localhost:8000/api/candidates")
 
       .then((res) => {
         console.log(res);
@@ -66,7 +62,7 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="bg-div">
       <div className="">
         <span className="">New Candidate</span>
 
@@ -172,18 +168,18 @@ const AdminDashboard = () => {
             <tr key={index}>
               {/* Display candidate name and Link to view page */}
               <td>
-                <div>
+              <div className="">{candidate.name}</div>
+                {/* <div>
                   <Link
                     to={`/view/${candidate._id}`}
-                    className="d-flex justify-content-around m-5"
-                  >
+                    className="d-flex justify-content-around m-5">
                     <>
                       <td className="">
                         <div className="">{candidate.name}</div>
                       </td>
                     </>
                   </Link>
-                </div>
+                </div> */}
               </td>
 
               {/* <td>
@@ -193,7 +189,7 @@ const AdminDashboard = () => {
                 </td> */}
 
               <td>
-                <div className="d-flex justify-content-around m-5">
+                <div className="d-flex justify-content-around">
                   {candidate.party}
                 </div>
               </td>

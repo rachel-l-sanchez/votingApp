@@ -4,11 +4,11 @@ const Footer = () => {
 
     const footerDiv={
         backgroundColor: "#403f3b",
-        minHeight: "15vh"
+        minHeight: "20vh"
     }
     
   return (
-    <div style={footerDiv}>Footer</div>
+    <div style={footerDiv}>:)</div>
   )
 }
 

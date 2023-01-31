@@ -4,3 +4,39 @@
     background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
     background: rgba(204, 204, 204, 0.3);
 }
+
+.dash-button {
+    width: 8em;
+    box-shadow: 2px 2px black;
+    background-color: #c03e3c;
+    border-radius: 1vh;
+    padding: .25em 0em;
+    font-size: 1.75em;
+    color: white;
+}
+
+.view-dash-button {
+    width: 3.5em;
+    box-shadow: 2px 2px black;
+    background-color: #c03e3c;
+    border-radius: 1vh;
+    padding: .25em 0em;
+    font-size: 1.1em;
+    color: white;
+}
+
+.bg-div {
+    background-color: #ebeddf;
+    min-height: 70vh
+}
+
+
+
+button:hover {
+    transform: translateY(-0.25vh);
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
