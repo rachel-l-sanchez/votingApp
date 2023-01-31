@@ -1,5 +1,5 @@
 
-
+import { NavLink } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -21,7 +21,7 @@ const EditCandidate = () => {
   useEffect(() => {
     axios
       .get(`http://localhost:8000/edit/candidate/${id}`, {
-        withCredentials: true,
+        withCredentials: true, credentials:'include'
       })
       .then((res) => {
         console.log(res);
@@ -65,12 +65,12 @@ const EditCandidate = () => {
 
   return (
     <div className="candidate-form bg-div">
-      <span>New Candidate</span>
+      <span>Edit Candidate</span>
 
       {/* Create candidate form */}
       <form className="p-4" onSubmit={submitHandler}>
         <label className="form-label">Full Name:</label>
-        <input
+        <input name="name" value={name}
           onChange={(e) => setName(e.target.value)}
           className="form-control"
           type="text"
@@ -81,7 +81,7 @@ const EditCandidate = () => {
         ) : null} */}
 
         <label className="form-label">Past Term Start Date:</label>
-        <input
+        <input name="pastTermStartDate" value={pastTermStartDate}
           onChange={(e) => setPastTermStartDate(e.target.value)}
           className="form-control"
           type="text"
@@ -91,7 +91,7 @@ const EditCandidate = () => {
         ) : null} */}
 
         <label className="form-label">Past Term End Date:</label>
-        <input
+        <input name="pastTermEndDate" value={pastTermEndDate}
           onChange={(e) => setPastTermEndDate(e.target.value)}
           className="form-control"
         />
@@ -100,7 +100,7 @@ const EditCandidate = () => {
         ) : null} */}
 
         <label className="form-label">Party:</label>
-        <input
+        <input name="party" value={party}
           onChange={(e) => setParty(e.target.value)}
           className="form-control"
           type="text"
@@ -110,7 +110,7 @@ const EditCandidate = () => {
         ) : null} */}
 
         <label className="form-label">Stance:</label>
-        <input
+        <input name="stance" value={stance}
           onChange={(e) => setStance(e.target.value)}
           className="form-control"
         />
@@ -119,7 +119,7 @@ const EditCandidate = () => {
         ) : null} */}
 
         <label className="form-label">Experience:</label>
-        <input
+        <input name="experience" value={experience}
           onChange={(e) => setExperience(e.target.value)}
           className="form-control"
           type="text"
@@ -141,6 +141,7 @@ const EditCandidate = () => {
         <button className="mt-3 btn btn-info ">Update</button>
         <button className="mt-3 btn btn-danger ">Delete</button>
       </form>
+      <button className="navButton"><NavLink to="/admin">Back to Admin Dashboard</NavLink></button>
     </div>
   );
 };

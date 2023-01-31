@@ -1,5 +1,4 @@
-
-
+import { NavLink } from "react-router-dom";
 import React, { useState, Link, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -161,6 +160,7 @@ const AdminDashboard = () => {
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Party</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -192,6 +192,9 @@ const AdminDashboard = () => {
                 <div className="d-flex justify-content-around">
                   {candidate.party}
                 </div>
+              </td>
+              <td>
+              <button className="navButton"><NavLink to={`/edit/${candidate._id}`}>Edit Candidate</NavLink></button>
               </td>
             </tr>
           ))}
