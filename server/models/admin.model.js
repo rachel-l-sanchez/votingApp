@@ -39,17 +39,17 @@ AdminSchema.pre('save',async function(next){
     }
 })
 
-AdminSchema.pre('save',async function(next){
-    try {
-        // 10 is number of times to salt password
-        const hashedPassword = await bcrypt.hash(this.password, 10)
-        console.log('hashed password', hashedPassword)
-        this.password = hashedPassword
-        next()
-    } catch {
-        console.log('Error in save', error)
-    }
-})
+// AdminSchema.pre('save',async function(next){
+//     try {
+//         // 10 is number of times to salt password
+//         const hashedPassword = await bcrypt.hash(this.password, 10)
+//         console.log('hashed password', hashedPassword)
+//         this.password = hashedPassword
+//         next()
+//     } catch {
+//         console.log('Error in save', error)
+//     }
+// })
 
 module.exports = mongoose.model('Admin', AdminSchema);
 
