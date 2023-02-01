@@ -14,7 +14,7 @@ const Login = ({setAdmin}) => {
       password},
      { withCredentials: true, credentials:'include' })
         .then ( (res) => {
-          console.log('admin', res.data.admin);
+          console.log('admin', res.data);
           navigate("/admin");
         })
         .catch( (err) => {
