@@ -17,7 +17,7 @@ app.use(
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://35.153.98.64");
   res.header(
-    "Access-Control-Allow-Headers", *
+    "Access-Control-Allow-Headers", "*"
   );
   next();
 });
