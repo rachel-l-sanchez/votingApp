@@ -3,10 +3,11 @@ import { Link, useParams } from 'react-router-dom';
 
 import axios from 'axios'
 import '../main.css';
+import e from 'cors';
 
 // Includes race count
 
-const VoterDashboard = () => {
+const VoterDashboard = ({submitted, setSubmitted}) => {
 
   const secondDivBg={
     minHeight: "60vh"
@@ -19,11 +20,6 @@ const VoterDashboard = () => {
   }
 
   const [candidateList, setCandidateList] = useState([]);
-  const [counter, setCounter] = useState(0);
-  // const {submitted, setSubmitted} = useState(false)
-  const {id} = useParams();
-  const [errors,setErrors] = useState({})
-  // const navigate = useNavigate();
   
 
   useEffect (() => {
@@ -34,23 +30,23 @@ const VoterDashboard = () => {
           }).catch(err => {
               console.log(err)
           })
-  }, []);
+  }, [submitted]);
 
   const voteHandler = (id, votes) =>{
+    console.log(submitted)
+    if(submitted){
+      alert("You have already voted in this election.");
+      return;
+    }
     let newVoteCount = votes + 1;
       axios.put(`http://localhost:8000/api/vote/${id}`,{ "voteCount": newVoteCount })
       .then((res)=> {
-        console.log(res.data)
-        window.location.reload()
+        console.log(res)
+        setSubmitted(true)
       }).catch((err) => {
         console.log(err)
-        setErrors(err.response.data.errors)
     })
   }
-
-  // /api/candidate/:id
-
-
 
   return (
     <div className="p-5 bg-div">

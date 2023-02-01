@@ -13,7 +13,8 @@ import AdminLogReg from './components/AdminLogReg';
 import Footer from './components/Footer';
 
 function App() {
-  const [admin, setAdmin] = useState({})
+  const [admin, setAdmin] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <div className="App">
@@ -25,7 +26,7 @@ function App() {
           <Route element={<Login  setAdmin={setAdmin} />} path="/login" />
           <Route element={<Register setAdmin={setAdmin}/>} path="/register" />
           <Route element={<AdminDashboard />} path="/admin" />
-          <Route element={<VoterDashboard />} path="/voterdashboard" />
+          <Route element={<VoterDashboard submitted={submitted} setSubmitted={setSubmitted}/>} path="/voterdashboard" />
           <Route element={<EditCandidate />} path="/edit/:id" />
           <Route element={<ViewCandidate />} path="/view/:id" />
         </Routes>
