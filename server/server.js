@@ -13,6 +13,15 @@ app.use(
 );
 // middleware sends post data by adding it in
 
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://35.153.98.64");
+  res.header(
+    "Access-Control-Allow-Headers", *
+  );
+  next();
+});
+
 app.use(express.json()); /*  allows JSON Objects to be posted */
 app.use(
   express.urlencoded({ extended: true })
