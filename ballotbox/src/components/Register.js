@@ -24,7 +24,7 @@ const Register = ({ setAdmin }) => {
 					firstName,
 					lastName,
 					email,
-					password
+					password,
 				},
 				{ withCredentials: true, credentials: "include" }
 			)
@@ -41,106 +41,108 @@ const Register = ({ setAdmin }) => {
 	return (
 		<div className="bg-div">
 			{/* NEW FORM ########### */}
-			<div className="font-sans flex min-h-full p-3 pt-5">
-				<form
-					className="m-auto bg-white drop-shadow-lg rounded-lg overflow-hidden w-96 accent-gray-800"
-					onSubmit={handleSubmit}
-				>
-					<div className="p-6">
-						<p className="text-3xl pl-3">Register New Admin</p>
-						{/* FIRST NAME START  */}
-						<div className="mt-4 relative">
-							<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
-								<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+			<div className="rotate">
+				<div className="font-sans flex min-h-full p-3 pt-5">
+					<form
+						className="m-auto bg-white drop-shadow-lg rounded-lg overflow-hidden w-96 accent-gray-800"
+						onSubmit={handleSubmit}
+					>
+						<div className="p-6">
+							<p className="text-3xl pl-3">Register New Admin</p>
+							{/* FIRST NAME START  */}
+							<div className="mt-4 relative">
+								<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
+									<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+								</div>
+								<input
+									className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
+									placeholder="First Name"
+									type="text"
+									onChange={(e) => setFirstName(e.target.value)}
+								/>
+								{errors.firstName ? (
+									<span className="accent">{errors.firstName.message} </span>
+								) : null}
 							</div>
-							<input
-								className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
-								placeholder="First Name"
-								type="text"
-								onChange={(e) => setFirstName(e.target.value)}
-							/>
-							{errors.firstName ? (
-								<span className="accent">{errors.firstName.message} </span>
-							) : null}
-						</div>
-						{/* FIRST NAME END */}
+							{/* FIRST NAME END */}
 
-						{/* LAST NAME START  */}
-						<div className="mt-4 relative">
-							<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
-								<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+							{/* LAST NAME START  */}
+							<div className="mt-4 relative">
+								<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
+									<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+								</div>
+								<input
+									className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
+									placeholder="Last Name"
+									type="text"
+									onChange={(e) => setLastName(e.target.value)}
+								/>
+								{errors.lastName ? (
+									<span className="accent">{errors.lastName.message} </span>
+								) : null}
 							</div>
-							<input
-								className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
-								placeholder="Last Name"
-								type="text"
-								onChange={(e) => setLastName(e.target.value)}
-							/>
-							{errors.lastName ? (
-								<span className="accent">{errors.lastName.message} </span>
-							) : null}
-						</div>
 
-						{/* LAST NAME END  */}
+							{/* LAST NAME END  */}
 
-						{/* EMAIL START  */}
-						<div className="mt-4 relative">
-							<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
-								<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+							{/* EMAIL START  */}
+							<div className="mt-4 relative">
+								<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
+									<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+								</div>
+								<input
+									className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
+									placeholder="Email"
+									type="text"
+									onChange={(e) => setEmail(e.target.value)}
+								/>
+								{errors.email ? (
+									<span className="accent">{errors.email.message} </span>
+								) : null}
 							</div>
-							<input
-								className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
-								placeholder="Email"
-								type="text"
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-							{errors.email ? (
-								<span className="accent">{errors.email.message} </span>
-							) : null}
-						</div>
-						{/* EMAIL END  */}
+							{/* EMAIL END  */}
 
-						{/* PASSWORD START  */}
-						<div className="mt-4 relative">
-							<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
-								<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+							{/* PASSWORD START  */}
+							<div className="mt-4 relative">
+								<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
+									<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+								</div>
+								<input
+									className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
+									placeholder="Password"
+									type="password"
+									onChange={(e) => setPassword(e.target.value)}
+								/>
+								{errors.password ? (
+									<span className="accent">{errors.password.message} </span>
+								) : null}
 							</div>
-							<input
-								className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
-								placeholder="Password"
-								type="password"
-								onChange={(e) => setPassword(e.target.value)}
-							/>
-							{errors.password ? (
-								<span className="accent">{errors.password.message} </span>
-							) : null}
-						</div>
-						{/* PASSWORD END  */}
-						{/* CONFIRM PASSWORD START  */}
-						<div className="mt-4 relative">
-							<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
-								<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+							{/* PASSWORD END  */}
+							{/* CONFIRM PASSWORD START  */}
+							<div className="mt-4 relative">
+								<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
+									<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+								</div>
+								<input
+									className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
+									placeholder="Confirm Password"
+									type="password"
+									onChange={(e) => setConfirmPassword(e.target.value)}
+								/>
+								{errors.confirmPassword ? (
+									<span className="accent">
+										{errors.confirmPassword.message}{" "}
+									</span>
+								) : null}
 							</div>
-							<input
-								className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
-								placeholder="Confirm Password"
-								type="password"
-								onChange={(e) => setConfirmPassword(e.target.value)}
-							/>
-							{errors.confirmPassword ? (
-								<span className="accent">
-									{errors.confirmPassword.message}{" "}
-								</span>
-							) : null}
+							{/* CONFIRM PASSWORD END  */}
 						</div>
-						{/* CONFIRM PASSWORD END  */}
-					</div>
-					<div>
-						<button className="bg-[#c03e3c] uppercase py-4 w-full text-white text-xs tracking-widest">
-							Submit
-						</button>
-					</div>
-				</form>
+						<div>
+							<button className="bg-[#c03e3c] uppercase py-4 w-full text-white text-xs tracking-widest">
+								Submit
+							</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	);
