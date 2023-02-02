@@ -12,12 +12,14 @@ const AdminDashboard = () => {
 	const [stance, setStance] = useState("");
 	const [experience, setExperience] = useState("");
 	const [voteCount, setVoteCount] = useState("");
+	const [headshot, setHeadshot] = useState("");
 	const navigate = useNavigate();
 
 	const [candidateList, setCandidateList] = useState([]);
 
 	const submitHandler = (e) => {
 		e.preventDefault(); //prevents default action of page refresh and state clear, once button is clicked
+		console.log(name, "and", headshot)
 
 		axios
 			.post("http://localhost:8000/api/candidate", {
@@ -28,6 +30,7 @@ const AdminDashboard = () => {
 				stance,
 				experience,
 				voteCount,
+				headshot: headshot
 			})
 			.then((res) => {
 				console.log(res);
@@ -202,6 +205,19 @@ const AdminDashboard = () => {
 							) : null}
 						</div>
 						{/* VOTE END  */}
+						{/* HEADSHOT START  */}
+						<div className="mt-4 relative">
+							<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
+								<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+							</div>
+							<input
+								className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
+								placeholder="Headshot URL"
+								type="input"
+								onChange={(e) => setHeadshot(e.target.value)}
+							/>
+						</div>
+						{/* HEADSHOT END  */}
 					</div>
 					<div>
 						<button className="bg-[#c03e3c] uppercase py-4 w-full text-white text-xs tracking-widest">

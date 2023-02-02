@@ -33,6 +33,9 @@ const CandidateSchema = new mongoose.Schema({
     ]},
     voteCount: {
         type: Number
+    },
+    headshot: {
+        type: String, required: [true, "Headshot required"]
     }
 }, { timestamps: true });
 
