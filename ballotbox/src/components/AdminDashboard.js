@@ -214,7 +214,7 @@ const AdminDashboard = () => {
 			<div className="all-candidates">
 				<p className="text-3xl pt-2 pb-2 pl-3">Candidates</p>
 			</div>
-			<table className="table table-bordered">
+			<table className="table table-bordered m-0">
 				<thead>
 					<tr>
 						<th scope="col">Name</th>
