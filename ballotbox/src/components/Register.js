@@ -8,6 +8,7 @@ const Register = ({ setAdmin }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+	const [ match, setMatch ] = useState(true);
 	const [errors, setErrors] = useState("");
 	const navigate = useNavigate();
 
@@ -38,6 +39,14 @@ const Register = ({ setAdmin }) => {
 			});
 	};
 
+	const passwordsMatch = (checkpassword) => {
+        if(password == checkpassword ) {
+            setMatch(true)
+        }else{
+            setMatch(false)
+        }
+    }
+
 	return (
 		<div className="bg-div">
 			{/* NEW FORM ########### */}
@@ -61,7 +70,7 @@ const Register = ({ setAdmin }) => {
 									onChange={(e) => setFirstName(e.target.value)}
 								/>
 								{errors.firstName ? (
-									<span className="accent">{errors.firstName.message} </span>
+									<p className="text-red-600 text-center">{errors.firstName.message}</p>
 								) : null}
 							</div>
 							{/* FIRST NAME END */}
@@ -78,7 +87,7 @@ const Register = ({ setAdmin }) => {
 									onChange={(e) => setLastName(e.target.value)}
 								/>
 								{errors.lastName ? (
-									<span className="accent">{errors.lastName.message} </span>
+									<p className="text-red-600 text-center">{errors.lastName.message} </p>
 								) : null}
 							</div>
 
@@ -96,7 +105,7 @@ const Register = ({ setAdmin }) => {
 									onChange={(e) => setEmail(e.target.value)}
 								/>
 								{errors.email ? (
-									<span className="accent">{errors.email.message} </span>
+									<p className="text-red-600 text-center">{errors.email.message} </p>
 								) : null}
 							</div>
 							{/* EMAIL END  */}
@@ -113,7 +122,7 @@ const Register = ({ setAdmin }) => {
 									onChange={(e) => setPassword(e.target.value)}
 								/>
 								{errors.password ? (
-									<span className="accent">{errors.password.message} </span>
+									<p className="text-red-600 text-center">{errors.password.message} </p>
 								) : null}
 							</div>
 							{/* PASSWORD END  */}
@@ -126,13 +135,11 @@ const Register = ({ setAdmin }) => {
 									className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
 									placeholder="Confirm Password"
 									type="password"
-									onChange={(e) => setConfirmPassword(e.target.value)}
+									onChange={(e)=>passwordsMatch(e.target.value)}
 								/>
-								{errors.confirmPassword ? (
-									<span className="accent">
-										{errors.confirmPassword.message}{" "}
-									</span>
-								) : null}
+								{
+                        			match ? null : <p className="text-red-600 text-center">Passwords must match.</p>
+                    			}
 							</div>
 							{/* CONFIRM PASSWORD END  */}
 						</div>
