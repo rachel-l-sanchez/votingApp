@@ -21,8 +21,8 @@ const ViewCandidate = (props) => {
 
 	const imgStyle={
 		height: "10em",
-		width: "10em",
-		backgroundColor: "grey"
+		width: "10em"
+		// backgroundColor: "grey"
 	}
 
 	useEffect(() => {
@@ -37,7 +37,7 @@ const ViewCandidate = (props) => {
 			<div className="transparentDiv p-20 rounded" style={secondDivBg}>
 				<div className="title-info flex flex-row p-4 pt-0 items-center">
 					{/* <img src="" alt="" /> */}
-					<div style={imgStyle} className="me-5"></div>
+					{ item.headshot ? <img src={item.headshot} style={imgStyle} className="me-5" alt="candidate headshot" /> : <div style={imgStyle} className="me-5"></div>}
 					<p className="text-6xl">{item.name}</p>
 				</div>
 				<div className="demo-info flex flex-col p-4 text-3xl">

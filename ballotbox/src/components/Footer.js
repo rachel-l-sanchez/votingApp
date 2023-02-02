@@ -8,7 +8,7 @@ const Footer = () => {
     }
     
   return (
-    <div style={footerDiv}>:)</div>
+    <div style={footerDiv}></div>
   )
 }
 

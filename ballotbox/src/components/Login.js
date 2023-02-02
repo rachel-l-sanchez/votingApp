@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Login = ({ setAdmin }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [ errors, setErrors ] = useState([]);
 	const navigate = useNavigate();
 
 	const handleSubmit = (e) => {
@@ -23,7 +24,7 @@ const Login = ({ setAdmin }) => {
 				navigate("/admin");
 			})
 			.catch((err) => {
-				console.log(err);
+				setErrors(err.response.data.error);
 			});
 	};
 
@@ -63,6 +64,9 @@ const Login = ({ setAdmin }) => {
 								/>
 							</div>
 						</div>
+						{
+							errors ? <p className="text-red-600 text-center mb-2">{errors}</p> : null
+						}
 						<div>
 							<button
 								className="bg-[#c03e3c] uppercase py-4 w-full text-white text-xs tracking-widest"
