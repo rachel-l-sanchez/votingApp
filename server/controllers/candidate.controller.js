@@ -12,6 +12,7 @@ module.exports = {
     const {stance} = req.body;
     const {experience} = req.body;
     const {voteCount} = req.body;
+    const {headshot} = req.body;
     Candidate.create({
       name:name,
       pastTermStartDate:pastTermStartDate,
@@ -19,7 +20,8 @@ module.exports = {
       party:party,
       stance: stance,
       experience: experience,
-      voteCount: voteCount
+      voteCount: voteCount,
+      headshot: headshot
     })
     .then((newCandidate)=> {
       res.json({candidate: newCandidate})

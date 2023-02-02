@@ -13,6 +13,7 @@ const EditCandidate = (props) => {
 	const [experience, setExperience] = useState("");
 	const [voteCount, setVoteCount] = useState("");
 	const [candidate, setCandidate] = useState({});
+	const [ headshot, setHeadshot ] = useState("Headshot URL");
 
 	const { id } = useParams();
 
@@ -34,6 +35,8 @@ const EditCandidate = (props) => {
 				setExperience(res.data.candidate.experience);
 				setVoteCount(res.data.candidate.voteCount);
 				setCandidate(res.data.candidate);
+				setHeadshot(res.data.headshot);
+				
 			})
 			.catch((err) => {
 				console.log(err);
@@ -225,6 +228,19 @@ const EditCandidate = (props) => {
 							) : null} */}
 						</div>
 						{/* VOTE END  */}
+						{/* HEADSHOT START  */}
+						<div className="mt-4 relative">
+							<div className="absolute top-0 left-0 w-8 h-8 flex justify-center items-center">
+								<i className="text-sm text-gray-400 fa-regular fa-location-dot"></i>
+							</div>
+							<input
+								className="w-full bg-gray-100 text-xs font-bold border-none py-2 pl-8 pr-4 rounded placeholder:text-gray-800"
+								placeholder="Headshot URL" value={headshot}
+								type="input"
+								onChange={(e) => setHeadshot(e.target.value)}
+							/>
+						</div>
+						{/* HEADSHOT END  */}
 					</div>
 					<div>
 						<button className="bg-[#c03e3c] uppercase py-4 w-full text-white text-xs tracking-widest">
