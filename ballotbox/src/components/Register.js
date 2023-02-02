@@ -24,13 +24,13 @@ const Register = ({ setAdmin }) => {
 					firstName,
 					lastName,
 					email,
-					password,
+					password
 				},
 				{ withCredentials: true, credentials: "include" }
 			)
 			.then((res) => {
-				console.log("logged in admin" + res.data.admin);
-				setAdmin(res.data.admin);
+				console.log("logged in admin" + res.data);
+				setAdmin(res.data);
 				navigate("/admin");
 			})
 			.catch((err) => {

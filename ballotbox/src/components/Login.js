@@ -14,12 +14,12 @@ const Login = ({ setAdmin }) => {
 				"http://localhost:8000/api/admin/login",
 				{
 					email,
-					password,
+					password
 				},
 				{ withCredentials: true, credentials: "include" }
 			)
 			.then((res) => {
-				console.log("admin", res.data.admin);
+				console.log("admin", res.data);
 				navigate("/admin");
 			})
 			.catch((err) => {
