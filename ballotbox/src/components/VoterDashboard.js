@@ -55,7 +55,7 @@ const VoterDashboard = ({submitted, setSubmitted}) => {
           candidateList.map(candidate => (
             <div className="m-3 p-10 flex flex-col items-center w-48 transparentDiv rounded max-h-72">
             {
-              candidate.headshot ? <img src={candidate.headshot} style={imgStyle} className="me-5" alt="candidate headshot" /> : <div className="mb-2" style={imgStyle}></div>
+              candidate.headshot ? <img src={candidate.headshot} style={imgStyle} className="mb-2" alt="candidate headshot" /> : <div className="mb-2" style={imgStyle}></div>
             }
               <p className="text-xl text-center overflow-hidden truncate w-40">{candidate.name}</p>
               <p className="text-center overflow-hidden truncate w-40">{candidate.voteCount} Votes</p>
