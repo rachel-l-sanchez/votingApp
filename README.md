@@ -57,6 +57,7 @@ Navigate to the deployed application [http://100.26.160.109/](http://100.26.160.
 2. Rachel Howell
 3. Ashley Chase
 4. Tyler Vanderboegh
+5. Rachel Sanchez
 
 
 
